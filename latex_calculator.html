@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MathQuill CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.css">
+    <!-- jQuery (required for MathQuill) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- MathQuill JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
+    <!-- Configuration -->
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>LaTeX Calculator</h1>
+        
+        <div class="nav-links">
+            <a href="index.html">LaTeX Editor</a>
+            <a href="latex_calculator.html" class="active">LaTeX Calculator</a>
+        </div>
+        
+        <div class="notebook-container">
+            <!-- Equation rows will be added here dynamically -->
+            <div class="equation-row" data-row-id="0">
+                <div class="row-number">1</div>
+                <div class="calculator-container">
+                    <div class="editor-section">
+                        <div class="mathquill-editor">
+                            <div class="math-field" data-field-id="0"></div>
+                        </div>
+                        
+                        <div class="action-controls">
+                            <select class="action-select">
+                                <option value="">Select an action...</option>
+                                <option value="expand">Expand</option>
+                                <option value="factor">Factor</option>
+                                <option value="integrate">Integrate</option>
+                                <option value="diff">Differentiate</option>
+                            </select>
+                            <button class="btn calculate-btn" disabled>Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <div class="result-display">
+                            <div class="math-field result-field" data-field-id="0"></div>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn copy-result">Copy LaTeX</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="delete-row-btn" tabindex="-1" aria-label="Delete row">×</button>
+            </div>
+        </div>
+        
+        <div class="examples-section">
+            <h2>Example Equations</h2>
+            <div class="example-buttons">
+                <button class="example-btn" data-example="(x+1)(x+2)">Simple Polynomial</button>
+                <button class="example-btn" data-example="\\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}">Quadratic Formula</button>
+                <button class="example-btn" data-example="\\int_{0}^{\\infty} e^{-x^2} dx = \\frac{\\sqrt{\\pi}}{2}">Gaussian Integral</button>
+                <button class="example-btn" data-example="x^2">Integrate x²</button>
+                <button class="example-btn" data-example="a x^2">Differentiate ax²</button>
+                <button class="example-btn" data-example="\\sin(x)">Integrate sin(x)</button>
+                <button class="example-btn" data-example="e^x">Differentiate e^x</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="latex_calculator.js"></script>
+</body>
+</html> 
