@@ -5,7 +5,7 @@ const CONFIG = {
     // API endpoints
     API: {
         // Base URL for the API server
-        BASE_URL: 'http://localhost:5000',
+        BASE_URL: 'https://1324335853-fusqcegqdt.ap-guangzhou.tencentscf.com',
         // Endpoints for different operations
         ENDPOINTS: {
             EXPAND: '/expand',
