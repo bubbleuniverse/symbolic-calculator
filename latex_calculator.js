@@ -240,8 +240,11 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(`${CONFIG.API.BASE_URL}${endpoint}`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    ...CONFIG.API.CORS.HEADERS,
+                    'Origin': window.location.origin
                 },
+                mode: 'cors',
+                credentials: 'omit',
                 body: JSON.stringify({ expression: latex })
             })
             .then(response => {
@@ -255,8 +258,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 resultField.latex(data.result);
             })
             .catch(error => {
-                console.error('Error:', error);
-                resultField.latex('\\text{Error: ' + error.message + '}');
+                console.error('Direct request error:', error);
+                
+                // Try using the proxy as a fallback
+                if (window.makeProxiedRequest) {
+                    console.log('Attempting to use CORS proxy as fallback...');
+                    window.makeProxiedRequest(endpoint, { expression: latex })
+                        .then(data => {
+                            // Display the result from the proxy
+                            resultField.latex(data.result);
+                        })
+                        .catch(proxyError => {
+                            console.error('Proxy request error:', proxyError);
+                            resultField.latex('\\text{Error: ' + error.message + '}');
+                        });
+                } else {
+                    resultField.latex('\\text{Error: ' + error.message + '}');
+                }
             });
         });
         

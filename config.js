@@ -12,6 +12,19 @@ const CONFIG = {
             FACTOR: '/factor',
             INTEGRATE: '/integrate',
             DIFF: '/diff'
+        },
+        // CORS settings
+        CORS: {
+            // Allowed origins for CORS requests
+            ALLOWED_ORIGINS: [
+                'https://bubbleuniverse.github.io',
+                'http://localhost:3000' // For local development
+            ],
+            // Headers to include in requests
+            HEADERS: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
         }
     },
     
