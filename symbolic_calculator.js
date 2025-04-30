@@ -37,6 +37,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Listen for changes in the action select
     actionSelect.addEventListener('change', updateCalculateButton);
 
+    // Handle example buttons
+    document.querySelectorAll('.example-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const example = this.getAttribute('data-example');
+            inputField.setValue(example);
+            updateCalculateButton();
+            inputField.focus();
+        });
+    });
+
     // Handle calculate button click
     calculateBtn.addEventListener('click', function() {
         const action = actionSelect.value;

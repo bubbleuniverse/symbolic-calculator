@@ -301,30 +301,41 @@ kbd {
 
 /* Examples section */
 .examples-section {
-    margin-top: 30px;
-    padding-top: 20px;
+    margin-top: 2rem;
+    padding-top: 1rem;
     border-top: 1px solid #eee;
+}
+
+.examples-section h2 {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
 }
 
 .example-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 0.5rem;
 }
 
 .example-btn {
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 4px;
+    color: #333;
     cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
 }
 
 .example-btn:hover {
     background-color: #e9ecef;
-    border-color: #ced6e0;
+    border-color: #ced4da;
+}
+
+.example-btn:active {
+    background-color: #dee2e6;
 }
 
 /* Responsive design */

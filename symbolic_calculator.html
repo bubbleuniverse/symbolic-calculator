@@ -16,7 +16,6 @@
         
         <div class="nav-links">
             <a href="index.html">LaTeX Editor</a>
-            <a href="latex_calculator.html">LaTeX Calculator</a>
             <a href="symbolic_calculator.html" class="active">Symbolic Calculator</a>
         </div>
         
@@ -28,13 +27,12 @@
                 
                 <div class="action-controls">
                     <select id="action-select">
-                        <option value="">Select an action...</option>
-                        <option value="expand">Expand</option>
-                        <option value="factor">Factor</option>
                         <option value="integrate">Integrate</option>
                         <option value="diff">Differentiate</option>
+                        <option value="expand">Expand</option>
+                        <option value="factor">Factor</option>
                     </select>
-                    <button id="calculate-btn" class="btn" disabled>Calculate</button>
+                    <button id="calculate-btn" class="btn">Calculate</button>
                 </div>
             </div>
             
@@ -45,6 +43,17 @@
                 <div class="result-actions">
                     <button id="copy-result" class="btn">Copy LaTeX</button>
                 </div>
+            </div>
+        </div>
+
+        <div class="examples-section">
+            <h2>Example Expressions</h2>
+            <div class="example-buttons">
+                <button class="example-btn" data-example="ax+b+cx^{-1}">Linear with Inverse</button>
+                <button class="example-btn" data-example="\frac{1}{\sqrt{1+x^2}}">Inverse Square Root</button>
+                <button class="example-btn" data-example="\exp\left(-x^2\right)">Gaussian</button>
+                <button class="example-btn" data-example="\ln\left(2x\right)">Natural Logarithm</button>
+                <button class="example-btn" data-example="\arcsin\left(2x\right)">Inverse Sine</button>
             </div>
         </div>
     </div>
