@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbolic Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MathLive CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/mathlive/dist/mathlive-static.css">
+    <!-- Configuration -->
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Symbolic Calculator</h1>
+        
+        <div class="nav-links">
+            <a href="index.html">LaTeX Editor</a>
+            <a href="latex_calculator.html">LaTeX Calculator</a>
+            <a href="symbolic_calculator.html" class="active">Symbolic Calculator</a>
+        </div>
+        
+        <div class="calculator-container">
+            <div class="editor-section">
+                <div class="mathlive-editor">
+                    <math-field id="input-field">x</math-field>
+                </div>
+                
+                <div class="action-controls">
+                    <select id="action-select">
+                        <option value="">Select an action...</option>
+                        <option value="expand">Expand</option>
+                        <option value="factor">Factor</option>
+                        <option value="integrate">Integrate</option>
+                        <option value="diff">Differentiate</option>
+                    </select>
+                    <button id="calculate-btn" class="btn" disabled>Calculate</button>
+                </div>
+            </div>
+            
+            <div class="result-section">
+                <div class="result-display">
+                    <math-field id="result-field" readonly></math-field>
+                </div>
+                <div class="result-actions">
+                    <button id="copy-result" class="btn">Copy LaTeX</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MathLive JS -->
+    <script src="https://unpkg.com/mathlive"></script>
+    <script src="cors-proxy.js"></script>
+    <script src="symbolic_calculator.js"></script>
+</body>
+</html> 

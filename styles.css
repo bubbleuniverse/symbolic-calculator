@@ -201,74 +201,50 @@ kbd {
 /* Calculator container */
 .calculator-container {
     display: flex;
-    flex: 1;
-    gap: 20px;
-    padding: 15px;
-}
-
-.editor-section, .result-section {
-    flex: 1;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-/* MathQuill editor */
-.mathquill-editor {
-    margin-bottom: 15px;
-}
-
-.math-field {
-    min-height: 60px;
-    width: 100%;
-    padding: 10px;
-    background-color: white;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: monospace;
+    border-radius: 8px;
+    background-color: #f8f9fa;
 }
 
-/* Action controls */
+.editor-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .action-controls {
     display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 1rem;
+    align-items: center;
 }
 
-.action-select {
+.action-controls select {
     flex: 1;
-    padding: 8px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 14px;
+    background-color: white;
 }
 
-/* Buttons */
-.btn {
-    padding: 8px 16px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #2980b9;
-}
-
-.btn:disabled {
-    background-color: #bdc3c7;
-    cursor: not-allowed;
-}
-
-/* Result display */
 .result-display {
-    margin-bottom: 15px;
+    min-height: 3rem;
+    padding: 0.5rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
 }
 
 .result-actions {
@@ -313,4 +289,31 @@ kbd {
     .editor-section, .result-section {
         width: 100%;
     }
+}
+
+/* MathLive specific styles */
+.mathlive-editor {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+math-field {
+    width: 100%;
+    min-height: 2.5rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+}
+
+math-field:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+math-field[readonly] {
+    background-color: #f8f9fa;
+    cursor: default;
 } 
