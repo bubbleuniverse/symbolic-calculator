@@ -210,12 +210,37 @@ kbd {
     background-color: #f8f9fa;
 }
 
+.editor-section, .result-section {
+    flex: 1;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* MathQuill editor */
+.mathquill-editor {
+    margin-bottom: 15px;
+}
+
+.math-field {
+    min-height: 60px;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: monospace;
+}
+
 .editor-section {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
+/* Action controls */
 .action-controls {
     display: flex;
     gap: 1rem;
@@ -230,6 +255,27 @@ kbd {
     font-size: 1rem;
 }
 
+/* Buttons */
+.btn {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
 .result-section {
     display: flex;
     flex-direction: column;
@@ -240,6 +286,7 @@ kbd {
     background-color: white;
 }
 
+/* Result display */
 .result-display {
     min-height: 3rem;
     padding: 0.5rem;
