@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const rightMathFields = [];
     
     // Initialize the first row
-    initializeRow(0);
+    createNewRow(false, 0);
     
     // Function to create a new row
     function createNewRow(copyContent = false, sourceRowId = null) {
@@ -55,7 +55,36 @@ document.addEventListener('DOMContentLoaded', function() {
         
         return newRowId;
     }
-    
+
+    // Helper function to add keyboard event listeners
+    function addKeyboardListeners(element, rowId) {
+        // Shift+Enter to create new row
+        element.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.shiftKey && !(e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                createNewRow();
+            }
+        });
+
+        // Shift+Command+Enter to create new row with copied content  
+        element.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.shiftKey && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                createNewRow(true, rowId);
+            }
+        });
+
+        // Copy without $$ delimiters
+        element.addEventListener('copy', function(e) {
+            const selection = element.getValue();
+            if (selection) {
+                e.preventDefault();
+                const cleanLatex = selection.replace(/^\$\$|\$\$$/g, '');
+                e.clipboardData.setData('text/plain', cleanLatex);
+            }
+        });
+    }
+
     // Function to initialize a row
     function initializeRow(rowId) {
         const leftMathFieldElement = document.querySelector(`[data-field-id="left-${rowId}"]`);
@@ -64,50 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Store the fields
         leftMathFields[rowId] = leftMathFieldElement;
         rightMathFields[rowId] = rightMathFieldElement;
-        
-        // Add keyboard event listeners for Shift+Enter to create a new row
-        leftMathFieldElement.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && e.shiftKey && !(e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                createNewRow();
-            }
-        });
-        
-        rightMathFieldElement.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && e.shiftKey && !(e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                createNewRow();
-            }
-        });
-        
-        // Add keyboard event listeners for Command+Enter to create a new row with copied content
-        leftMathFieldElement.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && e.shiftKey && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                createNewRow(true, rowId);
-            }
-        });
-        
-        rightMathFieldElement.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && e.shiftKey && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                createNewRow(true, rowId);
-            }
-        });
-        
-        // Add tab navigation between left and right fields
-        leftMathFieldElement.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab' && !e.shiftKey) {
-                e.preventDefault();
-                rightMathFieldElement.focus();
-            }
-        });
-        
-        rightMathFieldElement.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab' && e.shiftKey) {
-                e.preventDefault();
-                leftMathFieldElement.focus();
-            }
-        });
+
+        // Add listeners to both fields
+        addKeyboardListeners(leftMathFieldElement, rowId);
+        addKeyboardListeners(rightMathFieldElement, rowId);
     }
 }); 

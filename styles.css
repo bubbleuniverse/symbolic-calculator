@@ -20,8 +20,8 @@ body {
 }
 
 h1, h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
+    color: #3498db;
+    margin-bottom: 0px;
 }
 
 /* Controls section */
@@ -175,7 +175,7 @@ kbd {
 
 /* Navigation links */
 .nav-links {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
 }
@@ -304,12 +304,6 @@ kbd {
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid #eee;
-}
-
-.examples-section h2 {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 1rem;
 }
 
 .example-buttons {

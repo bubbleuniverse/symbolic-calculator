@@ -53,7 +53,7 @@ A web-based application for editing and calculating LaTeX equations in real-time
 
 ## Acknowledgments
 
-- MathQuill for the equation editor
+- MathQuill and Mathlive for the equation editors
 
 ## Http Server Prerequisite
 
