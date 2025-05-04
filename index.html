@@ -3,24 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaTeX Editor</title>
+    <title>Symbolic Editor</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- MathQuill CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.css">
-    <!-- jQuery (required for MathQuill) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- MathQuill JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
-    <!-- Configuration -->
-    <script src="config.js"></script>
+    <!-- MathLive CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/mathlive/mathlive-static.css">
+    <script src="https://unpkg.com/mathlive"></script>
 </head>
 <body>
     <div class="container">
-        <h1>LaTeX Editor</h1>
-        <p>Edit equations in real-time. Use Shift+Enter to add a new row, Command+Enter to copy the current row, and click the delete icon to remove a row.</p>
-        
         <div class="nav-links">
-            <a href="index.html" class="active">LaTeX Editor</a>
+            <a class="active">Symbolic Editor</a>
             <a href="symbolic_calculator.html">Symbolic Calculator</a>
         </div>
         
@@ -29,22 +21,18 @@
                 <div class="row-number">1</div>
                 <div class="equation-container">
                     <div class="equation-side left-side">
-                        <div class="math-field" data-field-id="left-0"></div>
+                        <math-field data-field-id="left-0"></math-field>
                     </div>
                     <div class="equation-equals">=</div>
                     <div class="equation-side right-side">
-                        <div class="math-field" data-field-id="right-0"></div>
+                        <math-field data-field-id="right-0"></math-field>
                     </div>
                 </div>
-                <div class="delete-icon" data-row-id="0">×</div>
             </div>
         </div>
-    </div>
 
-    <!-- MathQuill JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
-    <script src="cors-proxy.js"></script>
-    <script src="latex_editor.js"></script>
+        <p>Edit equations in real-time. Use Shift+Enter to add a new row, Shift+Command+Enter to copy the current row.</p>
+    </div>
+    <script src="symbolic_editor.js"></script>
 </body>
 </html> 
