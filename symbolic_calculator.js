@@ -60,10 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Send the request to the server
         fetch(`${CONFIG.API.BASE_URL}/calculate`, {
             method: 'POST',
-            headers: {
-                ...CONFIG.API.CORS.HEADERS,
-                'Origin': window.location.origin
-            },
+            headers: CONFIG.API.CORS.HEADERS,
             mode: 'cors',
             credentials: 'omit',
             body: JSON.stringify({ 
