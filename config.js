@@ -6,13 +6,6 @@ const CONFIG = {
     API: {
         // Base URL for the API server
         BASE_URL: 'https://1324335853-fusqcegqdt.ap-guangzhou.tencentscf.com',
-        // Endpoints for different operations
-        ENDPOINTS: {
-            EXPAND: '/expand',
-            FACTOR: '/factor',
-            INTEGRATE: '/integrate',
-            DIFF: '/diff'
-        },
         // CORS settings
         CORS: {
             // Allowed origins for CORS requests
@@ -23,7 +16,8 @@ const CONFIG = {
             // Headers to include in requests
             HEADERS: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Referer': 'https://bubbleuniverse.github.io'
             }
         }
     },

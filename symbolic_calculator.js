@@ -49,36 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle calculate button click
     calculateBtn.addEventListener('click', function() {
-        const action = actionSelect.value;
+        const operation = actionSelect.value;
         const latex = inputField.getValue();
         
-        if (!action || !latex) return;
+        if (!operation || !latex) return;
         
         // Show loading state
         resultField.setValue('\\text{Calculating...}');
         
-        // Determine the endpoint based on the selected action
-        let endpoint;
-        switch(action) {
-            case 'expand':
-                endpoint = CONFIG.API.ENDPOINTS.EXPAND;
-                break;
-            case 'factor':
-                endpoint = CONFIG.API.ENDPOINTS.FACTOR;
-                break;
-            case 'integrate':
-                endpoint = CONFIG.API.ENDPOINTS.INTEGRATE;
-                break;
-            case 'diff':
-                endpoint = CONFIG.API.ENDPOINTS.DIFF;
-                break;
-            default:
-                resultField.setValue('\\text{Invalid action selected}');
-                return;
-        }
-        
         // Send the request to the server
-        fetch(`${CONFIG.API.BASE_URL}${endpoint}`, {
+        fetch(`${CONFIG.API.BASE_URL}/calculate`, {
             method: 'POST',
             headers: {
                 ...CONFIG.API.CORS.HEADERS,
@@ -86,7 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             mode: 'cors',
             credentials: 'omit',
-            body: JSON.stringify({ expression: latex })
+            body: JSON.stringify({ 
+                operation: operation,
+                expression: latex 
+            })
         })
         .then(response => {
             if (!response.ok) {
@@ -104,7 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Try using the proxy as a fallback
             if (window.makeProxiedRequest) {
                 console.log('Attempting to use CORS proxy as fallback...');
-                window.makeProxiedRequest(endpoint, { expression: latex })
+                window.makeProxiedRequest('/calculate', { 
+                    operation: operation,
+                    expression: latex 
+                })
                     .then(data => {
                         // Display the result from the proxy
                         resultField.setValue(data.result);
