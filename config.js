@@ -10,8 +10,7 @@ const CONFIG = {
         CORS: {
             // Allowed origins for CORS requests
             ALLOWED_ORIGINS: [
-                'https://bubbleuniverse.github.io',
-                'http://localhost:3000' // For local development
+                'https://bubbleuniverse.github.io'
             ],
             // Headers to include in requests
             HEADERS: {
